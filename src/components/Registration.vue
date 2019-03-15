@@ -7,7 +7,7 @@
           <input data-role="" name="" type="" required="" class="" value="">
         </div>
           <p data-role="" class="">We won’t share your private email address with other users.</p>
-        </div>
+      </div>
         <div class="" data-role="">
           <p data-role="" breed="" class="">Username *</p>
           <div class="">
