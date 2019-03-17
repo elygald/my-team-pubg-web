@@ -22,7 +22,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang='css'>
 .label_password {
   text-align:left;
   margin-bottom: 5px;

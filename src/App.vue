@@ -15,7 +15,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="css">
+
 #app {
   font-family: "Oswald", sans-serif;
   -webkit-font-smoothing: antialiased;

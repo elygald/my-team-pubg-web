@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='css'>
 .msg_login{
   width: 300px;
 }

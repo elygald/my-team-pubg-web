@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang='css'>
 #login {
     margin: auto;
     position: relative;
