@@ -35,11 +35,11 @@ export default {
 .input_login{
   float: left;
   width: 300px;
-  height: 20px;
+  height: 30px;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
-  margin-bottom: 10px;
+ 
 }
 .input_login:hover{
   border-width: 2px;
@@ -52,6 +52,6 @@ export default {
   outline: 0;
 }
 .div_login{
-  height: 30px;
+  height: 40px;
 }
 </style>

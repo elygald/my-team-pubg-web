@@ -1,6 +1,5 @@
 <template>
     <div id="login">
-        <h3 class="title_login"> Log In </h3> 
         <Inputlogin />
         <Inputpassword />
         <Buttonlogin />
@@ -27,12 +26,12 @@ export default {
     margin: auto;
     position: relative;
     width: 358px;
-    height: 300px;
+    height: 200px;
     border-radius: 5px;
-    border-width: 1px;
+    border-width: 0px;
     border-style: solid;
     border-color: #f2a900;
-    padding-left: 50px;
+    padding-left: 20px;
     background-color: #fff;
 }
 .title_login{

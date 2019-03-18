@@ -1,21 +1,27 @@
 <template>
   <div id="app">
-    <Login />
+    <Registration />
   </div>
 </template>
 
 <script>
-import Login from './components/login/Login.vue'
+//import Login from './components/login/Login.vue'
+import Registration from './components/registration/Registration.vue'
 
 export default {
   name: 'app',
   components: {
-    Login
+    Registration
   }
 }
 </script>
 
 <style lang="css">
+
+body{
+  width: 362px;
+  margin: auto;
+}
 
 #app {
   font-family: "Oswald", sans-serif;
@@ -23,7 +29,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 360px;
 }
 
 /* cyrillic */

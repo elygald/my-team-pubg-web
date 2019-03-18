@@ -36,7 +36,7 @@ export default {
   text-decoration: none;
   float: left;
   width: 300px;
-  height: 20px;
+  height: 30px;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
