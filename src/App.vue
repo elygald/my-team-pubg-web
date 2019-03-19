@@ -1,35 +1,34 @@
 <template>
   <div id="app">
-    <Registration />
+    <Main />
   </div>
 </template>
 
 <script>
 //import Login from './components/login/Login.vue'
-import Registration from './components/registration/Registration.vue'
+import Main from './components/home/Main.vue'
 
 export default {
   name: 'app',
   components: {
-    Registration
+    Main
   }
 }
 </script>
 
 <style lang="css">
-
 body{
-  width: 362px;
-  margin: auto;
+  background-color: black;
+  max-height: 100%;
+  min-height: 839px;
 }
-
 #app {
   font-family: "Oswald", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 360px;
+  width: 100%;
 }
 
 /* cyrillic */

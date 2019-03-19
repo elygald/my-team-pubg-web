@@ -1,18 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="css/style.css" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="favicon.ico">
     <script src="main.js"></script>
     <title>my-team-pubg-web</title>
+    <script>
+      function dragResize(edge){
+        overwolf.windows.getCurrentWindow(function(result){
+          if (result.status=="success"){
+            overwolf.windows.dragResize(result.window.id, edge);
+          }
+        });
+      };
+
+      function dragMove(){
+        overwolf.windows.getCurrentWindow(function(result){
+          if (result.status=="success" && result.window.state !== "Maximized"){
+            overwolf.windows.dragMove(result.window.id);
+          }
+        });
+      };
+
+      function closeWindow(){
+        overwolf.windows.getCurrentWindow(function(result){
+          if (result.status=="success"){
+            overwolf.windows.close(result.window.id);
+          }
+        });
+      };
+
+      function minimize(){
+        overwolf.windows.getCurrentWindow(function(result){
+          if (result.status=="success"){
+            overwolf.windows.minimize(result.window.id);
+          }
+        });
+      };
+
+      function toggleMaximize(){
+        let element = document.querySelector('.maximize-restore-selector'),
+            root = document.documentElement;
+
+        overwolf.windows.getCurrentWindow(function(result){
+          if (result.status !== "success") {
+            return;
+          }
+
+          if (element.checked) {
+            overwolf.windows.restore(result.window.id);
+            root.classList.remove('maximized');
+          } else {
+            overwolf.windows.maximize(result.window.id);
+            root.classList.add('maximized');
+          }
+        });
+      };
+
+      function showSupport() {
+        window.location.href = "overwolf://settings/support";
+      };
+
+      function openSubWindow(){
+        data =overwolf.benchmarking.onFpsInfoReady;
+        overwolf.windows.obtainDeclaredWindow("SubWindow", function(result){
+
+          if (result.status == "success"){
+            overwolf.windows.restore(result.window.id, function(result){
+                console.log(overwolf.benchmarking.onHardwareInfoReady);
+            });
+          }
+        });
+      };
+
+      function takeScreenshot(){
+        overwolf.media.takeScreenshot(function(result){
+          if (result.status == "success"){
+            var img = document.getElementById("screenshot");
+            img.src = result.url;
+            img.onload = function() {
+              overwolf.media.shareImage(img, "Screen Shot");
+            };
+          }
+        });
+      }
+
+      function runTeamSpeak(){
+        overwolf.extensions.launch("lmkhofgknaclgcdplfkgcahdkdmomimaoklioonf");
+      };
+
+    </script>
+
   </head>
   <body>
     <noscript>
       <strong>We're sorry but my-team-pubg-web doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div class="content" onmousedown="dragMove();">
+
+      <div class=".menu">
+        <div class="window-controls-group">
+          <button class="window-control" onclick="showSupport()">
+            <svg class="svg-icon-fill">
+              <use xlink:href="assets/svg/sprite.svg#window-control_support" />
+            </svg>
+          </button>
+
+          <button class="window-control">
+            <svg class="svg-icon-fill">
+              <use xlink:href="assets/svg/sprite.svg#window-control_settings" />
+            </svg>
+          </button>
+
+          <button class="window-control" onclick="minimize()">
+            <svg class="svg-icon-fill">
+              <use xlink:href="assets/svg/sprite.svg#window-control_minimize" />
+            </svg>
+          </button>
+
+          <button class="window-control" onclick="toggleMaximize()">
+            <input type="checkbox" class="maximize-restore-selector toggle-icons" checked />
+            <svg class="svg-icon-fill svg-icon-restore">
+              <use xlink:href="assets/svg/sprite.svg#window-control_restore" />
+            </svg>
+            <svg class="svg-icon-fill svg-icon-maximize">
+              <use xlink:href="assets/svg/sprite.svg#window-control_maximize" />
+            </svg>
+          </button>
+
+          <button class="window-control window-control-close" onclick="closeWindow();">
+            <svg class="svg-icon-fill">
+              <use xlink:href="assets/svg/sprite.svg#window-control_close" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    <div id="app">
+      
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
