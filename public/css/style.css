@@ -105,12 +105,12 @@ button svg, i svg {
 }
 
 .window-control {
-  color: #a8a8a8;
+  color: #f2a900;
   background-color: transparent;
 }
 
 .window-control:hover {
-  color: #dedede;
+  color: #f2a900;
   background-color: #272727;
 }
 
@@ -121,10 +121,12 @@ button svg, i svg {
 .content {
   position: relative;
   color: #b6b6b6;
-  background-image: url("https://content.overwolf.com/game-summary/backgrounds/default/10906/background.webp");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  /* background-image: url("https://content.overwolf.com/game-summary/backgrounds/default/10906/background.webp"); */
+  background-image: url("../img/background3.jpg");
+  background-repeat: repeat;
+  background-size: 100% 100%;
+
+  
   height: 100%;
   display: flex;
   flex-direction: column;
