@@ -15,12 +15,14 @@
 		"windows":{
 			"MainWindow":{
 					"file":"dist/index.html",
+					"desktop_only": true,
 					"show_in_taskbar": false,
 					"transparent": true,
 					"show_minimize": false,
 					"show_maximize": false,
 					"resizable": true,
 					"use_os_windowing": false,
+					"show_in_taskbar": true,
 					"size":{"width":839, "height":839},
 					"min_size":{"width":1300, "height":839},
 					"max_size":{"width":1920, "height":1040}

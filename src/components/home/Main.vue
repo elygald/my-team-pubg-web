@@ -14,7 +14,7 @@ export default {
   name: 'Main',
   components: {
     ContentContainer,
-    ContentContainerRight
+    ContentContainerRight,
   },
   data: () => {
     return state
