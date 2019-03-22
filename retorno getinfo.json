@@ -1,0 +1,37 @@
+{status: "success", res: game_info: 
+    location: "{ 
+        "x" : 2019, 
+        "y" : 1461, 
+        "z" : 1584 
+        }"
+    phase: "freefly" 
+    match_info: {
+    headshots: "0" 
+    kills: "1"
+    map: "Savage_Main" 
+    max_kill_distance: "4610.637207" 
+    me: "14"
+    mode: "solo"
+    nicknames: "{"team_members":[]}"
+    roster_0: "{"player":"Conkers_Mrc",
+                "kills":"0","
+                out":false}"
+    roster_1: "{"player":"grisgrisgris",
+                "kills":"0","
+                out":true}"
+    roster_2: "{"player":"anticiudadanouno","
+                kills":"2","
+                out":true}"
+    roster_3: "{"player":"xxserialkillerxz","
+                kills":"1","
+                out":true}"
+    roster_97: "{"player":"xiao_deng","
+                kills":"0","
+                out":true}"
+    total: "98"
+    total_damage_dealt: "184.319"
+    total_teams: "98"
+    }
+    me: { name: "Conkers_Mrc" 
+        status: "success" }
+}
