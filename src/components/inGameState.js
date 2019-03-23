@@ -23,7 +23,7 @@ export default{
         total_teams: "98"
     },
     me: {
-        name:"Conkers_Mrc",
+        name:"Conkers_",
         status: "success"
-    }
+    },
 }

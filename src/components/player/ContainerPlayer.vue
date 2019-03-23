@@ -1,19 +1,28 @@
 <template>
     <div class='container-player'>
-        <h1 class="title-player">Player</h1>
+        <h1 class="title-player">{{me.name}}</h1>
+        <h1 class="title-player">{{match_info.map}}</h1>
     </div>    
 </template>
 <script>
-import state from '../state'
+import state from '../inGameState.js'
+var overwolf = require('./overwolf.js');
 
+var states = state;
 export default {
     name: 'ContainerPlayer',
-  components: {
+    components: {
 
-  },
-  data: () => {
-    return state
-  }
+    },
+    data: () => {
+        return states
+    },
+    created: function() {
+        this.name();
+    },
+    methods: {
+            name: () => overwolf.name, 
+        }    
 }
 </script>
 <style>
