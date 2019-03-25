@@ -11,6 +11,7 @@
 		"description":"Primeira App"
 	},
 	"data": {
+		"game_events":[10906],
 		"start_window":"MainWindow",
 		"windows":{
 			"MainWindow":{
