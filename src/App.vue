@@ -1,17 +1,17 @@
 <template>
-  <div id="app">
-    <Main />
+  <div id='container'>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 //import Login from './components/login/Login.vue'
-import Main from './components/home/Main.vue'
+//import Main from './components/home/Main.vue'
 
 export default {
   name: 'app',
   components: {
-    Main
+    //Main
   }
 }
 </script>
