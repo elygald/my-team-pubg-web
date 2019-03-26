@@ -9,8 +9,8 @@
         <span class="icon-kills"><span class="title-player">{{match_info.kills}}</span></span>
         <span class="icon-headshots"><span class="title-player">{{match_info.headshots}}</span></span>
         <span class="icon-distance"><span class="title-player">{{match_info.max_kill_distance}}</span></span><br>
-        <span class="icon-team"><span class="title-player">1.{{match_info.nicknames.team_members[0]}} 2.{{match_info.nicknames.team_members[1]}} </span></span>
-       
+        <span v-if = "match_info.mode == 'duo'" class="icon-team"><span class="title-player">1.{{match_info.nicknames.team_members[0]}} 2.{{match_info.nicknames.team_members[1]}} </span></span>
+        <span v-if = "match_info.mode == 'squad'" class="icon-team"><span class="title-player">1.{{match_info.nicknames.team_members[0]}} 2.{{match_info.nicknames.team_members[1]}} 3.{{match_info.nicknames.team_members[2]}} 4.{{match_info.nicknames.team_members[3]}} </span></span>
     </div>    
 </template>
 <script>
@@ -123,9 +123,9 @@ export default {
     background-image: url('../../assets/ico/team.png');
     background-size: contain;
     background-repeat: no-repeat;
-    padding-left: 2.5%;
+    padding-left: 3.5%;
     padding-top: 0.5%;
-    padding-bottom: 0.5%;
+    padding-bottom: 0%;
 }
 hr.player{
     margin-top: 6px;

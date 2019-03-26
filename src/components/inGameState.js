@@ -11,7 +11,7 @@ export default{
         map: '',
         max_kill_distance: '0',
         me: '0',
-        mode: '',
+        mode: 'solo',
         nicknames: {team_members:[]},
         rosters:[{
             player:'',
