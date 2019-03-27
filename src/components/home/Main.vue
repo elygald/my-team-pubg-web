@@ -1,5 +1,6 @@
 <template>
     <div id='container-main'>
+      <Menu />
       <ContentContainer />
       <ContentContainerRight />
     </div>
@@ -9,10 +10,12 @@
 import state from '../state'
 import ContentContainer from './ContentContainer.vue'
 import ContentContainerRight from './ContentContainerRight.vue'
+import Menu from '@/components/menu/Menu.vue'
 
 export default {
   name: 'Main',
   components: {
+    Menu,
     ContentContainer,
     ContentContainerRight,
   },
