@@ -15,7 +15,7 @@
 </template>
 <script>
 import state from '../inGameState.js'
-//var overwolf = require('./overwolf.js');
+var overwolf = require('./overwolf.js');
 
 var states = state;
 export default {
