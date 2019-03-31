@@ -8,11 +8,11 @@ export default{
     match_info: {
         headshots: '0',
         kills: '0',
-        map: '',
+        map: 'Erangel',
         max_kill_distance: '0',
         me: '0',
-        mode: 'solo',
-        nicknames: {team_members:[]},
+        mode: '',
+        nicknames: {team_members:['Conkers_Mrc','Dino']},
         rosters:[{
             player:'',
             kills: '0',
@@ -26,5 +26,6 @@ export default{
         name:'',
         status: 'success'
     },
-    ingame: 'In Game'
+    ingame: 'In Game',
+    in_game: false
 }

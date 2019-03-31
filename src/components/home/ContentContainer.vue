@@ -1,17 +1,23 @@
 <template>
     <div class="content-container">
         <ContainerPlayer />
+        <ContainerHistoric />
+        <ContainerModes />
     </div>
 </template>
 
 <script>
 import state from '../state'
 import ContainerPlayer from './../player/ContainerPlayer.vue'
+import ContainerHistoric from './../player/historic/ContainerHistoric.vue'
+import ContainerModes from './../player/ContainerModes.vue'
 
 export default {
   name: 'ContentContainer',
   components: {
-      ContainerPlayer
+      ContainerPlayer,
+      ContainerHistoric,
+      ContainerModes
   },
   data: () => {
     return state
@@ -30,5 +36,26 @@ export default {
         position: relative;
         float: left;
         border-radius: 4px;
+        overflow:auto; 
     }
+    /* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f2a900;
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 </style>

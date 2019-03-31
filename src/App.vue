@@ -1,5 +1,6 @@
 <template>
   <div id='container'>
+    <font-awesome-icon icon="coffee" />
     <router-view></router-view>
   </div>
 </template>
