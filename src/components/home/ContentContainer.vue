@@ -29,10 +29,10 @@ export default {
     .content-container{
         background-color: rgba(0,0,0,.5);
         width: 64.517%;
-        height: 1040px;
+        height: 90%;
         max-width: 64.517%;
-        max-height: 1040px;
-        min-height: 839px;
+        max-height: 90%;
+        min-height: 90%;
         position: relative;
         float: left;
         border-radius: 4px;

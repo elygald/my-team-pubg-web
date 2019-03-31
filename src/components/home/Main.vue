@@ -28,7 +28,8 @@ export default {
 <style lang="css">
     #container-main{
         width: 100%;
-        height: 839px;
+        height: 100%;
+        min-height: 839px;
         margin: 0 auto;
         position: relative;
     }

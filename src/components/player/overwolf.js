@@ -1,5 +1,5 @@
 import state from '../inGameState.js';
-import { stat } from 'fs';
+import historicGameState from '../historicGameState.js';
 
 function setatributes(feature = 'null'){
   overwolf.games.events.getInfo(function(info) {
@@ -8,7 +8,14 @@ function setatributes(feature = 'null'){
     }
     if(feature == "phase"){
       state.phase = (info.res == "undefined") ? "lobby": info.res.game_info.phase;
-      state.me.name = (info.res.me == "undefined") ? '' : info.res.me.name;
+    }
+    if(feature == 'rank'){
+      console.log(info)
+      state.match_info.me = (info.res.match_info.me  == "undefined") ? '0' : info.res.match_info.me; 
+      if (state.match_info.me != null){
+        myHistoric(state);
+      }
+      
     }   
     if(feature == "kill"){
       state.match_info.kills = (info.res.match_info.kills  == "undefined") ? '0' : info.res.match_info.kills;
@@ -21,17 +28,46 @@ function setatributes(feature = 'null'){
       state.match_info.me = 0;
       
     }else { 
-       state.match_info.mode = info.res.match_info.mode;
+      state.me.name = (info.res.me == "undefined") ? '' : info.res.me.name;
+      state.match_info.mode = info.res.match_info.mode;
       if(state.match_info.mode != "solo" && info.res.game_info.phase != "lobby"){
         var team = JSON.parse(info.res.match_info.nicknames);
         state.match_info.nicknames.team_members = team.team_members;
       }
-      state.match_info.me = (info.res.match_info.me  == "undefined") ? '0' : info.res.match_info.me; 
-      //state.match_info.total_teams = info.res.match_info.total_teams; 
+      state.match_info.total_teams = info.res.match_info.total_teams; 
+      state.match_info.total = info.res.match_info.total;
       state.match_info.map = map(info.res.match_info.map);
     } 
   });
   
+}
+var countrank =0 ;
+function myHistoric (stateGameLast){
+  if(stateGameLast){
+      var last = {
+          headshots: stateGameLast.match_info.headshots,
+          kills: stateGameLast.match_info.kills,
+          map: stateGameLast.match_info.map,
+          max_kill_distance: stateGameLast.match_info.max_kill_distance,
+          me: stateGameLast.match_info.me,
+          mode: stateGameLast.match_info.mode,
+          nicknames: stateGameLast.nicknames,
+          total: stateGameLast.match_info.total,
+          total_damage_dealt: stateGameLast.match_info.total_damage_dealt,
+          total_teams: stateGameLast.match_info.total_teams,
+          date_matche: historicGameState.recent_matches.length + 1,
+          details: false
+      };
+      if(countrank == 0){
+        historicGameState.recent_matches.unshift(last);
+        countrank+=1;
+      }else{
+        countrank = 0;
+      }
+      if (historicGameState.recent_matches.length > 10){
+        historicGameState.recent_matches.pop();
+      }
+  }
 }
 
 var g_interestedInFeatures = [
