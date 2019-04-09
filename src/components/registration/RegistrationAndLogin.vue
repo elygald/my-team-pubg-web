@@ -1,30 +1,32 @@
 <template>
-  <div class="teste">
-    <div class="tabs-container">
+  <div id='container-main'>
+    <Menu />
+    <div class="content-container">
+        <div class="tabs-container">
+        <input type="radio" name="tabs" class="tabs" id="tab1" checked>
+        <label for="tab1">Log In</label>
+        <div><Login /></div>
 
-      <input type="radio" name="tabs" class="tabs" id="tab1" checked>
-      <label for="tab1">Log In</label>
-      <div><Login /></div>
-
-
-      <input type="radio" name="tabs" class="tabs" id="tab2">
-      <label for="tab2">Registration</label>
-      <div></div>
-
+        <input type="radio" name="tabs" class="tabs" id="tab2">
+        <label for="tab2">Registration</label>
+        <div><Registration /></div>
+      </div>
     </div>
-  </div>    
-
+  </div>
 </template>
 
 <script>
 import state from '../state'
 import Login from './../login/Login.vue'
-
+import Registration from './../login/Registration.vue'
+import Menu from '@/components/menu/Menu.vue'
 
 export default {
-  name: 'Registration',
+  name: 'RegistrationAndLogin',
   components: {
-    Login
+    Login,
+    Registration,
+    Menu
   },
   data: () => {
     return state
@@ -47,7 +49,8 @@ p{
 .tabs-container {
   margin: auto;
   position: relative;
-
+  width: 360px;
+  top: 30%;
 }
 
 .tabs-container:after {
@@ -84,7 +87,7 @@ input.tabs + label + div {
   width: auto;
   opacity: 0;
   position: absolute;
-  background: #eee;
+background-color: rgba(0,0,0,.8);
   top: 40px;
   left: 0;
   height: auto;
@@ -96,8 +99,8 @@ input.tabs:checked + label + div {
   opacity: 1;
   z-index: 1000;
 }
-.teste{
-  float: center;
+.content-container{
+  text-align: center;
 }
 
 </style>

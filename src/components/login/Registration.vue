@@ -1,32 +1,36 @@
 <template>
-    <div id="login">
+    <div id="Registration">
         <Inputlogin />
         <Inputpassword />
-        <Buttonlogin />
+        <InputConfirmPassword />
+        <ButtonRegistration />
     </div>
 </template>
 
 <script>
 import Inputlogin from './Inputlogin.vue'
 import Inputpassword from './Inputpassword.vue'
-import Buttonlogin from './Buttonlogin.vue'
+import ButtonRegistration from './ButtonRegistration.vue'
+import InputConfirmPassword from './InputConfirmPassword.vue'
+
 
 export default {
-  name: 'Login',
+  name: 'Registration',
   components: {
     Inputlogin,
     Inputpassword,
-    Buttonlogin
-  }
+    ButtonRegistration,
+    InputConfirmPassword
+  },
 }
 </script>
 
 <style lang='css'>
-#login {
+#Registration {
     padding-top: 5px;
     margin: auto;
     width: 360px;
-    height: 200px;
+    height: 255px;
     border-radius: 5px;
     border-width: 0px;
     border-style: solid;

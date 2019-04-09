@@ -1,23 +1,15 @@
 <template>
   <div class="div_login" style="">
     <button class="Buttonlogin" type="" disabled="" data-role="">
-      <span class="label_buttom">{{ buttonmsg }}</span>
+      <span class="label_buttom">Registration</span>
     </button>
   </div>
 </template>
 
 <script>
-import state from '../state'
 
 export default {
-  name: 'Buttonlogin',
-  components: {
-
-  },
-  data: () => {
-    state.buttonmsg = 'Login'
-    return state
-  }
+  name: 'ButtonRegistration',
 }
 </script>
 

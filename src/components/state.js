@@ -4,6 +4,6 @@ export default {
     msglogin: 'We won’t share your private email address with other users',
     login: 'Email',
     password: 'Password',
-    msglogin: '', 
+    confirmpassword: 'Confirm Password',
     buttonmsg: ''
 }
