@@ -19,7 +19,7 @@
 import state from '../state'
 import Login from './../login/Login.vue'
 import Registration from './../login/Registration.vue'
-import Menu from '@/components/menu/Menu.vue'
+import Menu from '../menu/Menu.vue'
 
 export default {
   name: 'RegistrationAndLogin',

@@ -27,5 +27,7 @@ export default{
         status: 'success'
     },
     ingame: 'In Game',
-    in_game: false
+    in_game: false,
+    api_pubg_key: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyZDdlZGMxMC0yMDUyLTAxMzctNDU0Ni0wYjk1YTc3YTFhOGMiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTUxNjY2MTA0LCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6Ii05MzI4MDE5Ni1iODFkLTQ3ZWUtOWQzZi1kZDFiYjBiZDQ1YWIifQ.qpS40hyaYayx2ceMfsVCZ-_QbCblW8rwXscCLGeSysM"
+
 }

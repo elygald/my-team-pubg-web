@@ -15,9 +15,9 @@
 		"start_window": "MainWindow",
 		"windows": {
 			"MainWindow": {
-				"file": "dist/index.html",
+				"file": "./index.html",
 				"desktop_only": true,
-				"show_in_taskbar": false,
+				"show_in_taskbar": true,
 				"transparent": true,
 				"show_minimize": false,
 				"show_maximize": false,

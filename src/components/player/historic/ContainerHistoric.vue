@@ -54,12 +54,16 @@
     </div>
 </template>
 <script>
-import state from '../../historicGameState.js'
+import historicGameState from '../../historicGameState.js'
+import states from '../../inGameState.js'
 
 export default {
     name: 'ContainerHistoric',
     data: () => {
-        return state
+        return historicGameState
+    },
+    created: function () {
+        this.setHistoric()
     },
     methods:{
         visible: function(indice){
@@ -68,7 +72,68 @@ export default {
             }else{
                 this.recent_matches[indice].details = true;
             }
-        }
+        },
+        setHistoric: () =>{
+               var myHeaders = new Headers({
+                    "accept": "application/vnd.api+json",
+                    "Authorization": states.api_pubg_key
+                });
+                var myInit = {  method: 'GET',
+                                headers: myHeaders,
+                                mode: 'cors',
+                                cache: 'default' 
+                            };
+                var nickname = localStorage.getItem("Player_nickname");
+                fetch('https://api.pubg.com/shards/steam/players?filter[playerNames]='.concat(nickname) ,myInit)
+                .then(stream => stream.json())
+                .then(data =>{
+                    var matches = data.data[0].relationships.matches.data.slice(0,10);
+                    matches.forEach(function(item){
+                	    fetch('https://api.pubg.com/shards/steam/matches/'.concat(item.id) ,myInit)
+                        .then(stream => stream.json())
+                        .then(data =>{
+                            var stats = data.included
+                            var types = stats.reduce((acc, item)=>(!acc.includes(item.type)) ? acc.concat([item.type]) : acc, [])
+                            var participants= types.reduce((acc, type) =>{
+	                                acc[type] = stats.filter(item => item.type === type);
+                                    return acc }, {})
+                            var participant = participants.participant.filter(function(item){
+                                if(item.attributes.stats.playerId == localStorage.getItem("id_pubg")){
+                                    return item.attributes.stats
+                                }
+                            })
+                            var roster
+                                participants.roster.forEach(function(item, key){
+                                    item.relationships.participants.data.forEach(function(it, key){
+                                        if(participant[0].id  == it.id){
+                                            roster = item
+                                        }
+                                    })
+                                })
+                             var last = {
+                                        headshots: participant[0].attributes.stats.headshotKills,
+                                        kills: participant[0].attributes.stats.kills,
+                                        map: data.data.attributes.mapName,
+                                        max_kill_distance: participant[0].attributes.stats.longestKill,
+                                        me: roster.attributes.stats.rank,
+                                        mode: data.data.attributes.gameMode,
+                                        nicknames: participant[0].attributes.stats.name,
+                                        total: participants.participant.length,
+                                        total_damage_dealt: participant[0].attributes.stats.damageDealt,
+                                        total_teams: data.data.relationships.rosters.data.length,
+                                        date_matche: data.data.attributes.createdAt,
+                                        details: false
+                                    };
+                            historicGameState.recent_matches.unshift(last);
+                           
+                            if (historicGameState.recent_matches.length > 10){
+                                historicGameState.recent_matches.pop();
+                            }
+                        });
+                    })
+                });
+               
+            } 
     }
 }
 </script>

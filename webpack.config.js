@@ -1,36 +1,83 @@
-const path = require('path');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
-    entry: './src/main.js',
-    target: 'node',
-    output: {
-      filename: 'main.js',
-      path: path.resolve(__dirname, 'dist')
+  entry: './src/main.js',
+  output: {
+    path: path.resolve(__dirname, './distdev'),
+    publicPath: './distdev/',
+    filename: 'build.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ],
+      },      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+          }
+          // other vue-loader options go here
+        }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]'
+        }
+      }
+    ]
+  },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
     },
-    module: {
-        rules: [
-             {
-                 test: /\.vue$/,
-                loader: 'vue-loader',
-               },
-              // this will apply to both plain `.js` files
-              // AND `<script>` blocks in `.vue` files
-              {
-                test: /\.js$/,
-                loader: 'babel-loader',
-              },
-              // this will apply to both plain `.css` files
-              // AND `<style>` blocks in `.vue` files
-              {
-                test: /\.css$/,
-                loader: 'css-loader'
-                
-              }
-        ]
-       },
-       plugins: [
-         // make sure to include the plugin!
-         new VueLoaderPlugin(),
-        ]
-  };
+    extensions: ['*', '.js', '.vue', '.json']
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true,
+    overlay: true
+  },
+  performance: {
+    hints: false
+  },
+  devtool: '#eval-source-map'
+}
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.devtool = '#source-map'
+  module.exports.output= {
+          path: path.resolve(__dirname, './dist'),
+          publicPath: './dist/',
+          filename: 'build.js'
+  },
+  // http://vue-loader.vuejs.org/en/workflow/production.html
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    })
+  ])
+}

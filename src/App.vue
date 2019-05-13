@@ -1,19 +1,24 @@
 <template>
   <div id='container'>
-    <font-awesome-icon icon="coffee" />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 //import Login from './components/login/Login.vue'
-
+import router from './router'
+var overwolf = require('./overwolf.js');
 
 export default {
   name: 'app',
   components: {
     
-  }
+  },
+  created: function() {
+    if(localStorage.getItem("Player_nickname")==null || localStorage.getItem("Player_nickname")== "undefined"){
+          router.push('/init');
+    }
+  },
 }
 </script>
 

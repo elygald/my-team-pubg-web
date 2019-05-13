@@ -10,7 +10,8 @@
 import state from '../state'
 import ContentContainer from './ContentContainer.vue'
 import ContentContainerRight from './ContentContainerRight.vue'
-import Menu from '@/components/menu/Menu.vue'
+import Menu from '../menu/Menu.vue'
+import Vue from 'vue'
 
 export default {
   name: 'Main',
@@ -21,6 +22,9 @@ export default {
   },
   data: () => {
     return state
+  },
+  created: function() {
+   
   }
 }
 </script>

@@ -1,8 +1,10 @@
-import state from '../inGameState.js';
-import historicGameState from '../historicGameState.js';
+import state from './components/inGameState.js';
+import historicGameState from './components/historicGameState.js';
 
 function setatributes(feature = 'null'){
+  
   overwolf.games.events.getInfo(function(info) {
+    console.log(info)
     if(info.status=='error'){
       return false;
     }
@@ -28,7 +30,8 @@ function setatributes(feature = 'null'){
       state.match_info.me = 0;
       
     }else { 
-      state.me.name = (info.res.me == "undefined") ? '' : info.res.me.name;
+      state.me.name = (info.res.me == "undefined") ? "undefined" : info.res.me.name;
+      localStorage.setItem("Player_nickname", state.me.name)
       state.match_info.mode = info.res.match_info.mode;
       if(state.match_info.mode != "solo" && info.res.game_info.phase != "lobby"){
         var team = JSON.parse(info.res.match_info.nicknames);
@@ -40,34 +43,6 @@ function setatributes(feature = 'null'){
     } 
   });
   
-}
-var countrank =0 ;
-function myHistoric (stateGameLast){
-  if(stateGameLast){
-      var last = {
-          headshots: stateGameLast.match_info.headshots,
-          kills: stateGameLast.match_info.kills,
-          map: stateGameLast.match_info.map,
-          max_kill_distance: stateGameLast.match_info.max_kill_distance,
-          me: stateGameLast.match_info.me,
-          mode: stateGameLast.match_info.mode,
-          nicknames: stateGameLast.nicknames,
-          total: stateGameLast.match_info.total,
-          total_damage_dealt: stateGameLast.match_info.total_damage_dealt,
-          total_teams: stateGameLast.match_info.total_teams,
-          date_matche: historicGameState.recent_matches.length + 1,
-          details: false
-      };
-      if(countrank == 0){
-        historicGameState.recent_matches.unshift(last);
-        countrank+=1;
-      }else{
-        countrank = 0;
-      }
-      if (historicGameState.recent_matches.length > 10){
-        historicGameState.recent_matches.pop();
-      }
-  }
 }
 
 var g_interestedInFeatures = [
@@ -88,7 +63,7 @@ var g_interestedInFeatures = [
   function registerEvents() {
     // general events errors
     overwolf.games.events.onError.addListener(function(info) {
-      //console.log("Error: " + JSON.stringify(info));
+      console.log("Error: " + JSON.stringify(info));
     });
   
     // "static" data changed
@@ -101,7 +76,7 @@ var g_interestedInFeatures = [
     // an event triggerd
     overwolf.games.events.onNewEvents.addListener(function(info) {
       setatributes(info.feature);
-     // console.log("EVENT FIRED: " + JSON.stringify(info));
+      console.log("EVENT FIRED: " + JSON.stringify(info));
     });
   }
   
@@ -126,7 +101,7 @@ var g_interestedInFeatures = [
     if (Math.floor(gameInfoinfo.gameInfo.id/10) != 10906) {
       return false;
     }
-    //console.log("PUBG Launched");
+    console.log("PUBG Launched");
     return true;
   
   }
@@ -146,7 +121,7 @@ var g_interestedInFeatures = [
       return false;
     }
     
-    //console.log("PUBG running");
+    console.log("PUBG running");
     return true;
   
   }
@@ -157,14 +132,14 @@ var g_interestedInFeatures = [
       if (info.status == "error")
       {
         state.in_game = false;
-        //console.log("Could not set required features: " + info.reason);
-        //console.log("Trying in 2 seconds");
+        console.log("Could not set required features: " + info.reason);
+        console.log("Trying in 2 seconds");
         window.setTimeout(setFeatures, 2000);
         return;
       }
       state.in_game = true;
-     // console.log("Set required features:");
-     // console.log(JSON.stringify(info));
+      console.log("Set required features:");
+      console.log(JSON.stringify(info));
     });
   }
   
@@ -179,7 +154,7 @@ var g_interestedInFeatures = [
     if(!res.gameInfo.isRunning){
       state.in_game = false;
     }
-   // console.log("onGameInfoUpdated: " + JSON.stringify(res));
+    console.log("onGameInfoUpdated: " + JSON.stringify(res));
   });
   
   overwolf.games.getRunningGameInfo(function (res) {
@@ -188,7 +163,7 @@ var g_interestedInFeatures = [
       setTimeout(setFeatures, 1000);
     }
    
-   // console.log("getRunningGameInfo: " + JSON.stringify(res));
+    console.log("getRunningGameInfo: " + JSON.stringify(res));
   });
   
 function map(map){

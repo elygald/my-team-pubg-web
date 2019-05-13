@@ -104,6 +104,111 @@
                     <span>DMG PER MATCH</span><br>
                     <span class='title-rating'>{{Squad.dmg_per_match}}</span>
                 </div>
+        </div><br>
+        <div class="mode_solo">
+                <h1 class='title-solo'>{{Solo_fpp.name}} <span class="matche_processed">matche {{Solo_fpp.total_matche}}</span></h1>
+                <div class='matche-mode-solo'>
+                    <span>Processed</span><br>
+                    <span class='title-rating'>{{Solo_fpp.processed}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Rating</span><br>
+                    <span class='title-rating'>{{Solo_fpp.rating}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Win</span><br>
+                    <span class='title-rating'>{{Solo_fpp.win}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Top 10</span><br>
+                    <span class='title-rating'>{{Solo_fpp.top_10_rate}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>K/D Ratio</span><br>
+                    <span class='title-rating'>{{Solo_fpp.kd_ratio}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Wins</span><br>
+                    <span class='title-rating'>{{Solo_fpp.wins}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Kills</span><br>
+                    <span class='title-rating'>{{Solo_fpp.Kills}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>DMG PER MATCH</span><br>
+                    <span class='title-rating'>{{Solo_fpp.dmg_per_match}}</span>
+                </div>
+        </div>
+        <div class="mode_duo">
+                <h1 class='title-duo'>{{Duo_fpp.name}} <span class="matche_processed">matche {{Duo_fpp.total_matche}}</span></h1>
+                <div class='matche-mode-solo'>
+                    <span>Processed</span><br>
+                    <span class='title-rating'>{{Duo_fpp.processed}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Rating</span><br>
+                    <span class='title-rating'>{{Duo_fpp.rating}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Win</span><br>
+                    <span class='title-rating'>{{Duo_fpp.win}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Top 10</span><br>
+                    <span class='title-rating'>{{Duo_fpp.top_10_rate}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>K/D Ratio</span><br>
+                    <span class='title-rating'>{{Duo_fpp.kd_ratio}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Wins</span><br>
+                    <span class='title-rating'>{{Duo_fpp.wins}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Kills</span><br>
+                    <span class='title-rating'>{{Duo_fpp.Kills}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>DMG PER MATCH</span><br>
+                    <span class='title-rating'>{{Duo_fpp.dmg_per_match}}</span>
+                </div>
+        </div>
+        <div class="mode_squad">
+            <h1 class='title-squad'>{{Squad_fpp.name}} <span class="matche_processed">matche {{Squad_fpp.total_matche}}</span></h1>
+            <div class='matche-mode-solo'>
+                    <span>Processed</span><br>
+                    <span class='title-rating'>{{Squad_fpp.processed}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Rating</span><br>
+                    <span class='title-rating'>{{Squad_fpp.rating}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Win</span><br>
+                    <span class='title-rating'>{{Squad_fpp.win}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Top 10</span><br>
+                    <span class='title-rating'>{{Squad_fpp.top_10_rate}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>K/D Ratio</span><br>
+                    <span class='title-rating'>{{Squad_fpp.kd_ratio}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Wins</span><br>
+                    <span class='title-rating'>{{Squad_fpp.wins}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>Kills</span><br>
+                    <span class='title-rating'>{{Squad_fpp.Kills}}</span>
+                </div>
+                <div class='matche-mode-solo'>
+                    <span>DMG PER MATCH</span><br>
+                    <span class='title-rating'>{{Squad_fpp.dmg_per_match}}</span>
+                </div>
         </div>
     </div>
 </template>
