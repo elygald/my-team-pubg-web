@@ -6,13 +6,10 @@
 </template>
 <script>
 import router from '../../router'
-var overwolf = require('../../overwolf.js');
+//var overwolf = require('../../overwolf.js');
 export default {
-    data: () =>{
-
-    },
     created: function() {
-        var init = setInterval(myinit,1000);
+        var init = setInterval(myinit,100);
 
         function myinit(){
             if(localStorage.getItem("Player_nickname")!=null){

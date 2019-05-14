@@ -9,6 +9,7 @@
 import router from './router'
 var overwolf = require('./overwolf.js');
 
+
 export default {
   name: 'app',
   components: {

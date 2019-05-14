@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>my-team-pubg-web</title>
     <script>
+      window.onload = function() {
+        toggleMaximize()
+      };
+
       function dragResize(edge){
         overwolf.windows.getCurrentWindow(function(result){
           if (result.status=="success"){
@@ -52,9 +56,17 @@
 
           if (element.checked) {
             overwolf.windows.restore(result.window.id);
+            let content = document.querySelector('.content-container')
+            if(content){
+              content.style.height = "764px"
+            }
             root.classList.remove('maximized');
           } else {
             overwolf.windows.maximize(result.window.id);
+            let content = document.querySelector('.content-container')
+            if(content){
+              content.style.height = "970px"
+            }	
             root.classList.add('maximized');
           }
         });
