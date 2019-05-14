@@ -31,7 +31,7 @@ function setatributes(feature = 'null'){
       
     }else { 
       state.me.name = (info.res.me == "undefined") ? "undefined" : info.res.me.name;
-      //localStorage.setItem("Player_nickname", state.me.name)
+      localStorage.setItem("Player_nickname", state.me.name)
       state.match_info.mode = info.res.match_info.mode;
       if(state.match_info.mode != "solo" && info.res.game_info.phase != "lobby"){
         var team = JSON.parse(info.res.match_info.nicknames);
