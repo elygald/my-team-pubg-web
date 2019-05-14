@@ -76,7 +76,8 @@ export default {
         setHistoric: () =>{
                var myHeaders = new Headers({
                     "accept": "application/vnd.api+json",
-                    "Authorization": states.api_pubg_key
+                    "Authorization": states.api_pubg_key,
+                   
                 });
                 var myInit = {  method: 'GET',
                                 headers: myHeaders,
@@ -85,12 +86,24 @@ export default {
                             };
                 var nickname = localStorage.getItem("Player_nickname");
                 fetch('https://api.pubg.com/shards/steam/players?filter[playerNames]='.concat(nickname) ,myInit)
-                .then(stream => stream.json())
+                .then(stream => {
+                        if (!stream.ok) {
+                                console.log(stream.statusText);
+                            }else{
+                            return stream.json()
+                            }
+                        })
                 .then(data =>{
                     var matches = data.data[0].relationships.matches.data.slice(0,10);
                     matches.forEach(function(item){
                 	    fetch('https://api.pubg.com/shards/steam/matches/'.concat(item.id) ,myInit)
-                        .then(stream => stream.json())
+                        .then(stream => {
+                        if (!stream.ok) {
+                                console.log(stream.statusText);
+                            }else{
+                            return stream.json()
+                            }
+                        })
                         .then(data =>{
                             var stats = data.included
                             var types = stats.reduce((acc, item)=>(!acc.includes(item.type)) ? acc.concat([item.type]) : acc, [])
