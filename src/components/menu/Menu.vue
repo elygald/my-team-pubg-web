@@ -1,12 +1,12 @@
 <template>
     <nav> 
         <ul class='menu'>
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/team">Teams</router-link></li>
+            <li><router-link to="/">Stats</router-link></li>
+            <!-- <li><router-link to="/team">Teams</router-link></li>
             <li><router-link to="/player">Players</router-link></li>
             <li><router-link to="/find-teams">Find Teams</router-link></li>
             <li><router-link to="/find-players">Find players</router-link></li>
-            <li><router-link to="/login">login</router-link></li>
+            <li><router-link to="/login">login</router-link></li> -->
         </ul>
     </nav>
 </template>

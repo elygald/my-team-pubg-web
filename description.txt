@@ -1,0 +1,19 @@
+<html>
+<body>
+<h3>My Team</h3>
+
+My team
+
+You want to create a competitive team come to My team platform, <br>
+because here you will have many resources available to do all the<br>
+management of your team.
+<br><br>
+in this first version our application offers all the performance metrics of each player.
+<br><br>
+In the next version you will be able to create your own teams and have all<br>
+the performance metrics of the team when playing together. We are also <br>
+working to give teams information about heat maps, which is the best weapon<br>
+ for each player, championships and more ....
+
+</body>
+</html>

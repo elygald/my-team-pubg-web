@@ -2,13 +2,14 @@
 	"manifest_version": 1,
 	"type": "WebApp",
 	"meta": {
-		"name": "PUBG Game Events Consumer Sample",
+		"name": "My Team Pubg",
 		"version": "0.0.1",
 		"minimum-overwolf-version": "0.92.300.0",
 		"author": "Overwolf",
 		"icon": "IconMouseOver.png",
 		"icon_gray": "IconMouseNormal.png",
-		"description": "Game Events Consumer Sample"
+		"description": "Game Events Consumer Sample",
+		"launcher_icon": "launcher_icon.ico"
 	},
 	"data": {
 		"game_events": [10906],

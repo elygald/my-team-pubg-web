@@ -102,7 +102,7 @@ export default {
                         historicModeState.Solo.dmg_per_match = data.data.attributes.gameModeStats.solo.damageDealt
                         historicModeState.Solo.rating = data.data.attributes.gameModeStats.solo.bestRankPoint
                         historicModeState.Solo.wins = data.data.attributes.gameModeStats.solo.wins
-                        historicModeState.Solo.win =  (historicModeState.Solo.total_matche * historicModeState.Solo.wins)/100+'%'
+                        historicModeState.Solo.win =  ((historicModeState.Solo.wins / historicModeState.Solo.total_matche )*100).toFixed(2)+'%'
                         historicModeState.Solo.kd_ratio = (data.data.attributes.gameModeStats.solo.kills/data.data.attributes.gameModeStats.solo.losses).toFixed(2)
                         historicModeState.Solo.top_10_rate = data.data.attributes.gameModeStats.solo.top10s
                         //set mode Duo 
@@ -111,7 +111,7 @@ export default {
                         historicModeState.Duo.dmg_per_match = data.data.attributes.gameModeStats.duo.damageDealt
                         historicModeState.Duo.rating = data.data.attributes.gameModeStats.duo.bestRankPoint
                         historicModeState.Duo.wins = data.data.attributes.gameModeStats.duo.wins
-                        historicModeState.Duo.win =  (historicModeState.Duo.total_matche * historicModeState.Duo.wins)/100+'%'
+                        historicModeState.Duo.win =  ((historicModeState.Duo.wins/historicModeState.Duo.total_matche )*100).toFixed(2)+'%'
                         historicModeState.Duo.kd_ratio = (data.data.attributes.gameModeStats.duo.kills/data.data.attributes.gameModeStats.duo.losses).toFixed(2)
                         historicModeState.Duo.top_10_rate = data.data.attributes.gameModeStats.duo.top10s
                         //set mode squad
@@ -120,7 +120,7 @@ export default {
                         historicModeState.Squad.dmg_per_match = data.data.attributes.gameModeStats.squad.damageDealt
                         historicModeState.Squad.rating = data.data.attributes.gameModeStats.squad.bestRankPoint
                         historicModeState.Squad.wins = data.data.attributes.gameModeStats.squad.wins
-                        historicModeState.Squad.win =  (historicModeState.Squad.total_matche * historicModeState.Squad.wins)/100+'%'
+                        historicModeState.Squad.win =  ((historicModeState.Squad.wins/historicModeState.Squad.total_matche)*100).toFixed(2)+'%'
                         historicModeState.Squad.kd_ratio = (data.data.attributes.gameModeStats.squad.kills /data.data.attributes.gameModeStats.squad.losses).toFixed(2)
                         historicModeState.Squad.top_10_rate = data.data.attributes.gameModeStats.squad.top10s
                         //set mode solo-Fpp
@@ -129,7 +129,7 @@ export default {
                         historicModeState.Solo_fpp.dmg_per_match = data.data.attributes.gameModeStats['solo-fpp'].damageDealt
                         historicModeState.Solo_fpp.rating = data.data.attributes.gameModeStats['solo-fpp'].bestRankPoint
                         historicModeState.Solo_fpp.wins = data.data.attributes.gameModeStats['solo-fpp'].wins
-                        historicModeState.Solo_fpp.win =  (historicModeState.Solo_fpp.total_matche * historicModeState.Solo_fpp.wins)/100+'%'
+                        historicModeState.Solo_fpp.win =  ((historicModeState.Solo_fpp.wins/historicModeState.Solo_fpp.total_matche )*100).toFixed(2)+'%'
                         historicModeState.Solo_fpp.kd_ratio = (data.data.attributes.gameModeStats['solo-fpp'].kills/data.data.attributes.gameModeStats['solo-fpp'].losses).toFixed(2)
                         historicModeState.Solo_fpp.top_10_rate = data.data.attributes.gameModeStats['solo-fpp'].top10s
                         //set mode Duo-fpp
@@ -138,7 +138,7 @@ export default {
                         historicModeState.Duo_fpp.dmg_per_match = data.data.attributes.gameModeStats['duo-fpp'].damageDealt
                         historicModeState.Duo_fpp.rating = data.data.attributes.gameModeStats['duo-fpp'].bestRankPoint
                         historicModeState.Duo_fpp.wins = data.data.attributes.gameModeStats['duo-fpp'].wins
-                        historicModeState.Duo_fpp.win =  (historicModeState.Duo_fpp.total_matche * historicModeState.Duo_fpp.wins)/100+'%'
+                        historicModeState.Duo_fpp.win =  ((historicModeState.Duo_fpp.wins/historicModeState.Duo_fpp.total_matche)*100).toFixed(2)+'%'
                         historicModeState.Duo_fpp.kd_ratio = (data.data.attributes.gameModeStats['duo-fpp'].kills/data.data.attributes.gameModeStats['duo-fpp'].losses).toFixed(2)
                         historicModeState.Duo_fpp.top_10_rate = data.data.attributes.gameModeStats['duo-fpp'].top10s
                         //set mode squad-fpp
@@ -147,7 +147,7 @@ export default {
                         historicModeState.Squad_fpp.dmg_per_match = data.data.attributes.gameModeStats['squad-fpp'].damageDealt
                         historicModeState.Squad_fpp.rating = data.data.attributes.gameModeStats['squad-fpp'].bestRankPoint
                         historicModeState.Squad_fpp.wins = data.data.attributes.gameModeStats['squad-fpp'].wins
-                        historicModeState.Squad_fpp.win =  (historicModeState.Squad_fpp.total_matche * historicModeState.Squad_fpp.wins)/100+'%'
+                        historicModeState.Squad_fpp.win =  ((historicModeState.Squad_fpp.wins/historicModeState.Squad_fpp.total_matche)*100).toFixed(2)+'%'
                         historicModeState.Squad_fpp.kd_ratio = (data.data.attributes.gameModeStats['squad-fpp'].kills /data.data.attributes.gameModeStats['squad-fpp'].losses).toFixed(2)
                         historicModeState.Squad_fpp.top_10_rate = data.data.attributes.gameModeStats['squad-fpp'].top10s
                     }

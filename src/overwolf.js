@@ -14,10 +14,7 @@ function setatributes(feature = 'null'){
     if(feature == 'rank'){
       console.log(info)
       state.match_info.me = (info.res.match_info.me  == "undefined") ? '0' : info.res.match_info.me; 
-      if (state.match_info.me != null){
-        myHistoric(state);
-      }
-      
+        
     }   
     if(feature == "kill"){
       state.match_info.kills = (info.res.match_info.kills  == "undefined") ? '0' : info.res.match_info.kills;
