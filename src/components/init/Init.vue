@@ -12,7 +12,7 @@ export default {
         var init = setInterval(myinit,100);
 
         function myinit(){
-            if(localStorage.getItem("Player_nickname")!=null){
+            if(localStorage.getItem("Player_nickname")==null){
                 router.push('/home');
                 clearInterval(init);
             }
